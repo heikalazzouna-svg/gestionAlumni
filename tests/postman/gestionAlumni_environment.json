@@ -1,0 +1,37 @@
+{
+  "id": "gestion-alumni-env-01",
+  "name": "gestionAlumni Local",
+  "values": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8081",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "adminEmail",
+      "value": "test@admin.com",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "adminPassword",
+      "value": "password123",
+      "type": "secret",
+      "enabled": true
+    },
+    {
+      "key": "alumniEmail",
+      "value": "test@alumni.com",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "alumniPassword",
+      "value": "password123",
+      "type": "secret",
+      "enabled": true
+    }
+  ],
+  "_postman_variable_scope": "environment"
+}

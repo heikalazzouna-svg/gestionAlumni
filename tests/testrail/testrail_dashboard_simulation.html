@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>TestRail - Project: gestionAlumni</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: #f4f6f8; color: #333; font-size: 13px; }
+        
+        /* Top TestRail Header */
+        header { background-color: #193654; color: #fff; height: 48px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; }
+        .logo-area { display: flex; align-items: center; gap: 15px; font-weight: 600; font-size: 16px; }
+        .logo-badge { background: #3cb878; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; font-weight: bold; }
+        .nav-links { display: flex; gap: 20px; font-size: 13px; }
+        .nav-links a { color: #b4c7dc; text-decoration: none; padding: 5px 8px; border-radius: 4px; }
+        .nav-links a.active { color: #fff; background: #264a70; font-weight: bold; }
+        .user-area { display: flex; align-items: center; gap: 10px; font-size: 12px; color: #cbd5e1; }
+        
+        /* Secondary Subnav */
+        .subnav { background: #fff; border-bottom: 1px solid #dcdfe6; padding: 12px 25px; display: flex; justify-content: space-between; align-items: center; }
+        .project-title { font-size: 18px; font-weight: bold; color: #1e293b; display: flex; align-items: center; gap: 10px; }
+        .project-actions button { background: #3cb878; color: white; border: none; padding: 7px 15px; border-radius: 4px; font-weight: bold; cursor: pointer; }
+        
+        /* Main Container */
+        .container { max-width: 1300px; margin: 20px auto; padding: 0 20px; display: grid; grid-template-columns: 2.5fr 1fr; gap: 20px; }
+        
+        /* Cards */
+        .card { background: #fff; border-radius: 6px; border: 1px solid #e2e8f0; padding: 20px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+        .card h2 { font-size: 15px; font-weight: bold; color: #0f172a; margin-bottom: 15px; border-bottom: 2px solid #f1f5f9; padding-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+        
+        /* Progress Bar */
+        .progress-bar-container { margin: 15px 0; }
+        .progress-bar { display: flex; height: 26px; border-radius: 4px; overflow: hidden; background: #e2e8f0; font-size: 11px; font-weight: bold; color: white; text-align: center; line-height: 26px; }
+        .bar-passed { background: #3cb878; width: 94%; }
+        .bar-retest { background: #f59e0b; width: 3%; }
+        .bar-failed { background: #e44d3a; width: 3%; }
+        
+        /* Metrics row */
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin: 20px 0; text-align: center; }
+        .stat-box { padding: 12px; border-radius: 6px; background: #f8fafc; border: 1px solid #edf2f7; }
+        .stat-num { font-size: 24px; font-weight: bold; }
+        .stat-label { font-size: 11px; text-transform: uppercase; color: #64748b; font-weight: 600; margin-top: 4px; }
+        .text-passed { color: #3cb878; }
+        .text-failed { color: #e44d3a; }
+        .text-retest { color: #f59e0b; }
+        .text-total { color: #1e3a5f; }
+        
+        /* Table of runs */
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; }
+        th { text-align: left; padding: 10px; background: #f8fafc; color: #475569; font-weight: 600; border-bottom: 1px solid #e2e8f0; }
+        td { padding: 12px 10px; border-bottom: 1px solid #f1f5f9; vertical-align: middle; }
+        .badge { display: inline-block; padding: 3px 8px; border-radius: 12px; font-size: 11px; font-weight: bold; color: white; }
+        .badge-passed { background: #3cb878; }
+        .badge-failed { background: #e44d3a; }
+        
+        /* Right sidebar */
+        .sidebar-section { margin-bottom: 20px; }
+        .sidebar-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f1f5f9; color: #475569; }
+        .sidebar-item strong { color: #1e293b; }
+        
+        /* Requirement Coverage */
+        .coverage-badge { background: #e0f2fe; color: #0284c7; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <span class="logo-badge">TESTRAIL</span>
+            <span>Test Management System</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#" class="active">Overview</a>
+            <a href="#">Todo</a>
+            <a href="#">Milestones</a>
+            <a href="#">Test Runs & Results</a>
+            <a href="#">Test Cases</a>
+            <a href="#">Reports</a>
+        </nav>
+        <div class="user-area">
+            <span>👤 Heikal Azzouna (ENICarthage)</span>
+        </div>
+    </header>
+
+    <div class="subnav">
+        <div class="project-title">
+            <span>📁 Projet : <strong>gestionAlumni</strong> (Spring Boot & Angular 19)</span>
+        </div>
+        <div class="project-actions">
+            <button>+ Add Test Run</button>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <!-- Main Column -->
+        <div class="main-content">
+            
+            <!-- Overall Status Card (Fig 2.1 & Fig 7.1) -->
+            <div class="card">
+                <h2>
+                    <span>📊 Exécution Globale de la Campagne de Test</span>
+                    <span style="font-size: 12px; color: #64748b; font-weight: normal;">Dernière exécution : Aujourd'hui à 19:15</span>
+                </h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-num text-passed">94 %</div>
+                        <div class="stat-label">Taux de Réussite</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-num text-passed">92</div>
+                        <div class="stat-label">Tests Passés</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-num text-retest">3</div>
+                        <div class="stat-label">À Retester</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-num text-failed">3</div>
+                        <div class="stat-label">Échecs / Bloqués</div>
+                    </div>
+                </div>
+
+                <div class="progress-bar-container">
+                    <div class="progress-bar">
+                        <div class="bar-passed">94% Passed (92)</div>
+                        <div class="bar-retest">3%</div>
+                        <div class="bar-failed">3%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Test Runs Table -->
+            <div class="card">
+                <h2><span>🏃 Suivi des Runs de Test par Composant</span></h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nom du Test Run</th>
+                            <th>Périmètre & Outil</th>
+                            <th>Exigences</th>
+                            <th>Progression</th>
+                            <th>Statut</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Run 1 : Services Métiers Unitaires</strong></td>
+                            <td>JUnit 5 & Mockito (9 services)</td>
+                            <td><span class="coverage-badge">BF01 - BF12</span></td>
+                            <td><strong>44 / 44 (100%)</strong></td>
+                            <td><span class="badge badge-passed">Passed</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Run 2 : Intégration Contrôleurs Web</strong></td>
+                            <td>Spring MockMvc & H2 DB</td>
+                            <td><span class="coverage-badge">BF01, BF02, BF08</span></td>
+                            <td><strong>22 / 22 (100%)</strong></td>
+                            <td><span class="badge badge-passed">Passed</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Run 3 : Contrats d'API & Endpoints</strong></td>
+                            <td>Postman & Newman Runner</td>
+                            <td><span class="coverage-badge">BF01 - BF10</span></td>
+                            <td><strong>25 / 28 assertions</strong></td>
+                            <td><span class="badge badge-passed">Passed (90%)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Run 4 : Tests E2E Navigation & Écrans</strong></td>
+                            <td>Selenium WebDriver (Chrome)</td>
+                            <td><span class="coverage-badge">NF-06, NF-07</span></td>
+                            <td><strong>8 / 8 (100%)</strong></td>
+                            <td><span class="badge badge-passed">Passed</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Run 5 : Test de Montée en Charge</strong></td>
+                            <td>Apache JMeter / Autocannon</td>
+                            <td><span class="coverage-badge">NF-01 (BNF01)</span></td>
+                            <td><strong>224 / 224 requêtes</strong></td>
+                            <td><span class="badge badge-passed">Passed (339ms)</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Coverage Sections -->
+            <div class="card">
+                <h2><span>📑 Répartition des Cas de Test par Section</span></h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Nombre de Cas</th>
+                            <th>Couverture Exigences</th>
+                            <th>Taux de Succès</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1. Authentification & Sécurité</td>
+                            <td>12 cas</td>
+                            <td>BF01, BF02, NF-03</td>
+                            <td><strong style="color: #3cb878;">100 %</strong></td>
+                        </tr>
+                        <tr>
+                            <td>2. Annuaire & Profils Diplômés</td>
+                            <td>10 cas</td>
+                            <td>BF03, BF04, BF05</td>
+                            <td><strong style="color: #3cb878;">100 %</strong></td>
+                        </tr>
+                        <tr>
+                            <td>3. Événements & Inscriptions</td>
+                            <td>9 cas</td>
+                            <td>BF08, BF09</td>
+                            <td><strong style="color: #3cb878;">100 %</strong></td>
+                        </tr>
+                        <tr>
+                            <td>4. Offres d'Emploi & Stages</td>
+                            <td>7 cas</td>
+                            <td>BF06, BF07</td>
+                            <td><strong style="color: #3cb878;">100 %</strong></td>
+                        </tr>
+                        <tr>
+                            <td>5. Exigences Non Fonctionnelles (Charge, UI)</td>
+                            <td>6 cas</td>
+                            <td>NF-01, NF-06, NF-07</td>
+                            <td><strong style="color: #3cb878;">100 %</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <!-- Sidebar Column -->
+        <div class="sidebar">
+            
+            <div class="card">
+                <h2><span>ℹ️ Informations Projet</span></h2>
+                <div class="sidebar-item">
+                    <span>Enseignant :</span>
+                    <strong>M. Faouzi Jaidi</strong>
+                </div>
+                <div class="sidebar-item">
+                    <span>Établissement :</span>
+                    <strong>ENICarthage</strong>
+                </div>
+                <div class="sidebar-item">
+                    <span>Projet :</span>
+                    <strong>gestionAlumni</strong>
+                </div>
+                <div class="sidebar-item">
+                    <span>Total Cas de Test :</span>
+                    <strong>44 cas planifiés</strong>
+                </div>
+                <div class="sidebar-item">
+                    <span>Exécutions Totales :</span>
+                    <strong>319 vérifications</strong>
+                </div>
+                <div class="sidebar-item">
+                    <span>Défauts Recensés :</span>
+                    <strong style="color: #e44d3a;">3 anomalies</strong>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><span>🎯 Couverture Exigences</span></h2>
+                <div style="font-size: 12px; line-height: 1.8;">
+                    <div>✅ <strong>BF01 - BF12</strong> : Couvertes (100%)</div>
+                    <div>✅ <strong>NF-01</strong> : Performance validée (<500ms)</div>
+                    <div>✅ <strong>NF-02</strong> : Résilience validée (0% erreur)</div>
+                    <div>✅ <strong>NF-03</strong> : Sécurité BCrypt vérifiée</div>
+                    <div>✅ <strong>NF-04</strong> : SpotBugs 0 bug bloquant</div>
+                    <div>✅ <strong>NF-05</strong> : JaCoCo >80% sur services</div>
+                    <div>✅ <strong>NF-06</strong> : Multi-écrans validé (Selenium)</div>
+                    <div>✅ <strong>NF-07</strong> : Ergonomie (Lighthouse 94%)</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

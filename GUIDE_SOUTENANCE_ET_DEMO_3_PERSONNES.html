@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Guide Officiel de Soutenance - Équipe de 3 Étudiants</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 16mm 14mm 16mm 14mm;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #1e293b;
+            background: #fff;
+            line-height: 1.5;
+            font-size: 11pt;
+        }
+        .header-banner {
+            border-bottom: 3px solid #1e3a5f;
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .header-title h1 {
+            color: #1e3a5f;
+            font-size: 19pt;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .header-title h2 {
+            color: #475569;
+            font-size: 11pt;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+        .header-meta {
+            text-align: right;
+            font-size: 9pt;
+            color: #64748b;
+            line-height: 1.4;
+        }
+        .badge-role {
+            display: inline-block;
+            background: #1e3a5f;
+            color: white;
+            padding: 3px 9px;
+            border-radius: 4px;
+            font-size: 8.5pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .student-card {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-left: 5px solid #1e3a5f;
+            border-radius: 6px;
+            padding: 14px 18px;
+            margin-bottom: 22px;
+            page-break-inside: avoid;
+        }
+        .student-card.s1 { border-left-color: #2563eb; }
+        .student-card.s2 { border-left-color: #0d9488; }
+        .student-card.s3 { border-left-color: #7c3aed; }
+        
+        .student-card h3 {
+            font-size: 13.5pt;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        .student-scope {
+            font-size: 9.5pt;
+            color: #475569;
+            margin-bottom: 12px;
+            background: #f8fafc;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+        .speech-box {
+            background: #f0fdf4;
+            border-left: 4px solid #16a34a;
+            padding: 10px 14px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            font-size: 10pt;
+            color: #14532d;
+            font-style: italic;
+        }
+        .speech-box strong {
+            font-style: normal;
+            color: #15803d;
+            display: block;
+            margin-bottom: 3px;
+            text-transform: uppercase;
+            font-size: 8.5pt;
+        }
+        .command-box {
+            background: #0f172a;
+            color: #f8fafc;
+            padding: 10px 14px;
+            border-radius: 5px;
+            font-family: "Cascadia Code", "Consolas", "Courier New", monospace;
+            font-size: 9pt;
+            margin-bottom: 10px;
+            line-height: 1.45;
+        }
+        .command-label {
+            font-size: 8.5pt;
+            font-weight: 700;
+            color: #0284c7;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .arguments-box {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 9.5pt;
+            color: #1e40af;
+        }
+        .arguments-box strong {
+            color: #1d4ed8;
+        }
+        .prep-box {
+            background: #fffbeb;
+            border: 1.5px dashed #f59e0b;
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-bottom: 22px;
+            font-size: 9.5pt;
+            page-break-inside: avoid;
+        }
+        .prep-box h4 {
+            color: #b45309;
+            font-size: 10.5pt;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            font-weight: 800;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 9pt;
+            margin: 15px 0;
+            page-break-inside: avoid;
+        }
+        th, td {
+            border: 1px solid #cbd5e1;
+            padding: 8px 10px;
+            text-align: left;
+        }
+        th {
+            background: #f1f5f9;
+            color: #1e293b;
+            font-weight: 700;
+        }
+        .page-break {
+            page-break-after: always;
+        }
+        .gold-tips {
+            background: #fdf4ff;
+            border: 1px solid #f0abfc;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-size: 9.5pt;
+            color: #701a75;
+            margin-top: 15px;
+            page-break-inside: avoid;
+        }
+        .gold-tips strong {
+            color: #a21caf;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Banner -->
+    <div class="header-banner">
+        <div class="header-title">
+            <h1>GUIDE OFFICIEL DE SOUTENANCE (3 ÉTUDIANTS)</h1>
+            <h2>Projet : Qualification & Validation Logicielle de la Plateforme gestionAlumni</h2>
+        </div>
+        <div class="header-meta">
+            <strong>ENICarthage (2025 – 2026)</strong><br>
+            Module : Qualité & Test Logiciel<br>
+            Enseignant : <strong>M. Faouzi Jaidi</strong>
+        </div>
+    </div>
+
+    <!-- Preparation Checklist -->
+    <div class="prep-box">
+        <h4>⚡ AVANT L'ARRIVÉE DU PROFESSEUR (Mise en route indispensable)</h4>
+        <p style="margin-bottom: 6px;">Ouvrez <strong>2 terminaux discrets en arrière-plan</strong> afin que toutes les démos live répondent en moins d'une seconde :</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-family: monospace; font-size: 8.5pt;">
+            <div style="background: white; padding: 6px 10px; border: 1px solid #fcd34d; border-radius: 4px;">
+                <strong>Terminal 1 (Backend 8081) :</strong><br>
+                cd C:\Users\LENOVO\Desktop\spring\gestionAlumni<br>
+                set JAVA_HOME=C:\Users\LENOVO\Desktop\jdk-17.0.12<br>
+                set PATH=C:\Users\LENOVO\Desktop\jdk-17.0.12\bin;%PATH%<br>
+                mvnw.cmd spring-boot:run
+            </div>
+            <div style="background: white; padding: 6px 10px; border: 1px solid #fcd34d; border-radius: 4px;">
+                <strong>Terminal 2 (Frontend 4200) :</strong><br>
+                npx serve -s "C:\Users\LENOVO\Desktop\spring\ProjetWeb\dist\demo-web\browser" -l 4200
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== ETUDIANT 1 ==================== -->
+    <div class="student-card s1">
+        <h3>
+            <span>👤 ÉTUDIANT 1 : Chef de Projet & Backend Core</span>
+            <span class="badge-role" style="background: #2563eb;">Base de la Pyramide</span>
+        </h3>
+        <div class="student-scope">
+            <strong>Périmètre :</strong> Logique métier des 9 services, base de la pyramide (ISTQB), tests d'isolation avec Mockito, base in-memory H2, contrôleurs REST MockMvc, et métriques JaCoCo.
+        </div>
+
+        <div class="speech-box">
+            <strong>Discours d'introduction (À dire au professeur) :</strong>
+            « Monsieur, nous avons appliqué les recommandations de l'ISTQB en consolidant la base de notre pyramide de tests avec 66 tests automatisés. Nous avons découplé nos services avec des mocks Mockito et utilisé une base H2 en mémoire pour garantir des tests hermétiques, indépendants et déterministes. Voici l'exécution en direct. »
+        </div>
+
+        <div class="command-label">Commandes à lancer en direct dans le terminal :</div>
+        <div class="command-box">
+cd C:\Users\LENOVO\Desktop\spring\gestionAlumni<br>
+set JAVA_HOME=C:\Users\LENOVO\Desktop\jdk-17.0.12<br>
+set PATH=C:\Users\LENOVO\Desktop\jdk-17.0.12\bin;%PATH%<br>
+mvnw.cmd test
+        </div>
+
+        <div class="command-label">Ouvrir le rapport de couverture JaCoCo dans Chrome :</div>
+        <div class="command-box">
+start target\site\jacoco\index.html
+        </div>
+
+        <div class="arguments-box">
+            <strong>Ce qu'il montre à l'écran & Arguments clés :</strong>
+            <ul style="margin-left: 18px; margin-top: 4px;">
+                <li>Pointer le résultat : <strong>Tests run: 66, Failures: 0, Errors: 0</strong> (100% de succès).</li>
+                <li>Montrer le tableau JaCoCo : Couverture <strong>&gt; 80 %</strong> sur les services métiers clés.</li>
+                <li>Mentionner les 22 tests d'intégration MockMvc validant les contrats HTTP sans dépendance externe.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- ==================== ETUDIANT 2 ==================== -->
+    <div class="student-card s2">
+        <h3>
+            <span>👤 ÉTUDIANT 2 : Qualité Statique, Sécurité & Contrats d'API</span>
+            <span class="badge-role" style="background: #0d9488;">Techniques Statiques & API</span>
+        </h3>
+        <div class="student-scope">
+            <strong>Périmètre :</strong> Analyse statique SpotBugs, Revue formelle selon la norme <strong>IEEE 1028</strong>, validation des 13 requêtes d'API REST avec Postman/Newman, et sécurité d'accès.
+        </div>
+
+        <div class="speech-box">
+            <strong>Discours d'introduction (À dire au professeur) :</strong>
+            « Pour les techniques statiques, nous avons combiné une analyse outillée avec SpotBugs et une inspection formelle rigoureuse selon la norme IEEE 1028 avec modérateur, lecteur et rapporteur. De plus, nous avons testé nos contrats d'API avec Postman pour vérifier les codes HTTP, les payloads JSON et les temps de réponse. »
+        </div>
+
+        <div class="command-label">1. Lancer le scan SpotBugs en direct :</div>
+        <div class="command-box">
+mvnw.cmd spotbugs:spotbugs
+        </div>
+
+        <div class="command-label">2. Lancer la suite d'API Postman en direct avec Newman :</div>
+        <div class="command-box">
+cd C:\Users\LENOVO\Desktop\spring\gestionAlumni\tests\postman<br>
+npx newman run gestionAlumni.postman_collection.json -e gestionAlumni_environment.json
+        </div>
+
+        <div class="arguments-box">
+            <strong>Ce qu'il montre à l'écran & Arguments clés :</strong>
+            <ul style="margin-left: 18px; margin-top: 4px;">
+                <li><strong>SpotBugs :</strong> 42 classes compilées analysées, <strong>0 anomalie bloquante</strong> détectée.</li>
+                <li><strong>Postman / Newman :</strong> 13 requêtes exécutées, <strong>28 assertions validées</strong>, latence moyenne 73 ms.</li>
+                <li><strong>Explication du Cold Start :</strong> Si TC-API-01 prend 2s au tout premier run, expliquer : <em>« C'est le démarrage à froid de la JVM et l'ouverture du pool HikariCP. Dès la 2e requête, la latence chute sous 100 ms. »</em></li>
+                <li><strong>Inspection IEEE 1028 :</strong> Ouvrir le tableau 4.4 de votre rapport et présenter les défauts relevés (D-01 absence de RBAC, D-03 contournement service) pour prouver la démarche critique.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ==================== ETUDIANT 3 ==================== -->
+    <div class="student-card s3">
+        <h3>
+            <span>👤 ÉTUDIANT 3 : Performance (JMeter), Interface (Selenium) & TestRail</span>
+            <span class="badge-role" style="background: #7c3aed;">Non-Fonctionnel & UI</span>
+        </h3>
+        <div class="student-scope">
+            <strong>Périmètre :</strong> Montée en charge (BNF01), tests E2E Selenium (NF-06), audit de qualité Google Lighthouse (NF-07), et centralisation des exigences dans TestRail.
+        </div>
+
+        <div class="speech-box">
+            <strong>Discours d'introduction (À dire au professeur) :</strong>
+            « Pour valider nos exigences non fonctionnelles, nous avons soumis notre API à des tirs de charge concurrents pour valider BNF01 (&lt; 500ms). Ensuite, nous avons automatisé des tests E2E sous Selenium avec Chrome Headless pour valider la compatibilité multi-écrans NF-06, audité l'interface avec Google Lighthouse, et centralisé le tout dans TestRail. »
+        </div>
+
+        <div class="command-label">1. Lancer le test de montée en charge en direct (Exigence BNF01) :</div>
+        <div class="command-box">
+npx autocannon -c 10 -d 5 http://localhost:8081/api/alumni/directory
+        </div>
+
+        <div class="command-label">2. Lancer les 8 tests Selenium E2E en direct :</div>
+        <div class="command-box">
+cd C:\Users\LENOVO\Desktop\spring\gestionAlumni<br>
+pytest tests\selenium\test_interface_angular.py -v
+        </div>
+
+        <div class="command-label">3. Ouvrir Lighthouse et le Dashboard TestRail dans Chrome :</div>
+        <div class="command-box">
+start preuves_rapport\05_interface_angular\lighthouse_accueil_desktop.report.html<br>
+start tests\testrail\testrail_dashboard_simulation.html
+        </div>
+
+        <div class="arguments-box">
+            <strong>Ce qu'il montre à l'écran & Arguments clés :</strong>
+            <ul style="margin-left: 18px; margin-top: 4px;">
+                <li><strong>Performance (Autocannon / JMeter) :</strong> 284 ms de latence médiane, 0 % d'erreur HTTP sous 10 VUs.</li>
+                <li><strong>Selenium E2E :</strong> 8 tests réussis (100% Passed) validant les formats Mobile (375px), Tablette et Desktop.</li>
+                <li><strong>Google Lighthouse :</strong> Performance Desktop 94 %, Accessibilité 92 %, Bonnes Pratiques 100 %.</li>
+                <li><strong>TestRail :</strong> Centralisation de la campagne, traçabilité des exigences BF01-BF12 et taux global de 94 %.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Summary Table -->
+    <h3 style="font-size: 11pt; color: #1e3a5f; margin-top: 20px; margin-bottom: 8px;">TABLEAU RÉCAPITULATIF POUR LE JURY</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Membre</th>
+                <th>Périmètre & Chapitres du Rapport</th>
+                <th>Outils Mobilisés</th>
+                <th>Démonstration Live</th>
+                <th>Normes Clés</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Étudiant 1</strong></td>
+                <td>Logique métier, TU & Intégration (Chap. 3 & 5.1)</td>
+                <td>JUnit 5, Mockito, Spring Boot, H2, JaCoCo</td>
+                <td><code>mvnw.cmd test</code> + JaCoCo HTML</td>
+                <td>ISTQB (Boîte blanche, branches)</td>
+            </tr>
+            <tr>
+                <td><strong>Étudiant 2</strong></td>
+                <td>Techniques statiques & API (Chap. 4 & 5.2)</td>
+                <td>SpotBugs, IEEE 1028, Postman, Newman</td>
+                <td><code>spotbugs</code> + <code>newman run</code></td>
+                <td>IEEE 1028 (Inspection formelle)</td>
+            </tr>
+            <tr>
+                <td><strong>Étudiant 3</strong></td>
+                <td>Performance, E2E & Qualité UI (Chap. 5.3, 5.4, 2.3)</td>
+                <td>JMeter, Selenium, Lighthouse, TestRail</td>
+                <td><code>autocannon</code> + <code>pytest</code> + HTML</td>
+                <td>ISO 25010 (Qualité logicielle)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="gold-tips">
+        <strong>💡 CONSEILS EN OR POUR LA SOUTENANCE :</strong><br>
+        1. <strong>Ne lisez pas de diapositives chargées</strong> : montrez les commandes qui tournent en direct dans le terminal, les profs adorent voir du concret.<br>
+        2. <strong>Employez le vocabulaire exact</strong> : <em>« déterministe », « isolation par mocks », « rollback transactionnel », « cold start JVM », « traçabilité bidirectionnelle »</em>.<br>
+        3. <strong>Appuyez-vous sur votre rapport officiel</strong> : Toutes les figures et tableaux (TAB 1.1 à TAB 6.2) y sont consignés !
+    </div>
+
+</body>
+</html>
